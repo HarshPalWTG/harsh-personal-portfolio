@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Head from 'next/head';
 import Landing from '@/components/Landing';
 import Navbar from '../components/Navbar';
 import Intro from "@/components/Intro";
@@ -22,7 +23,10 @@ export default function Home(): JSX.Element {
 
   return (
     <div>
-
+      <Head>
+        <link rel="icon" href="/favicon.png" />
+        <title>Harsh Pal's Portfolio</title>
+      </Head>
       {/* Landing Page */}
       {isLandingVisible && <Landing setIsLandingVisible={setIsLandingVisible} />}
       {!isLandingVisible && <Navbar />}
