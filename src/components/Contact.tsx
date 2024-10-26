@@ -64,7 +64,7 @@ const Contact: React.FC<ContactProps> = () => {
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_API!
       )
       .then(
-        (result) => {
+        () => {
           setLoading(false);
           toast.success(`Successfully sent email.`);
         },
@@ -84,9 +84,9 @@ const Contact: React.FC<ContactProps> = () => {
 
       <div className={`${playpenSans.className} contact__container grid`}>
         <div className="contact__info">
-          <h3 className="contact__title">Let's talk about everything!</h3>
+          <h3 className="contact__title">Let&apos;s talk about everything!</h3>
           <p className="contact__details">
-            Don't like forms? Send me an email. 👋
+            Don&apos;t like forms? Send me an email. 👋
           </p>
         </div>
 
@@ -124,8 +124,8 @@ const Contact: React.FC<ContactProps> = () => {
             <textarea
               name=""
               id=""
-              cols="30"
-              rows="10"
+              cols={30}
+              rows={10}
               className="contact__form-input"
               placeholder="Write your message"
               onChange={(e) => setMessage(e.target.value)}

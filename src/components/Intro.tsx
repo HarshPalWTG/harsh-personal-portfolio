@@ -70,6 +70,7 @@ export default function Intro() {
       setTypingSpeed(isDeleting ? 50 : 150);
     };
 
+    // eslint-disable-next-line prefer-const
     typingTimeout = setTimeout(handleTyping, typingSpeed);
     return () => clearTimeout(typingTimeout);
   }, [text, isDeleting, loopNum, typingSpeed]);

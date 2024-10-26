@@ -24,7 +24,7 @@ const About = () => {
   const router = useRouter();
   const [isHovered, setIsHovered] = useState(false);
 
-  const handleIntersection = (entries) => {
+  const handleIntersection = (entries: IntersectionObserverEntry[]) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         setFadeIn(true);

@@ -1,9 +1,7 @@
-import { ReactNode } from "react"
-import { useRouter } from "next/navigation";
+import { ReactNode } from "react";
 import { useState, useEffect } from "react";
 export default function Card({children}:{children:ReactNode}){
     const [fadeIn, setFadeIn] = useState(false);
-    const router = useRouter();
 
     useEffect(()=>{
         setFadeIn(true);

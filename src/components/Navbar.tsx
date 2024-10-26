@@ -14,18 +14,30 @@ const playpenSans = Playpen_Sans({
 
 export default function App() {
   const { theme, toggleTheme } = useContext(ThemeContext); // Access the theme and toggleTheme from the context
-  const [isOpen, setIsOpen] = useState(false);
+  const [, setIsOpen] = useState(false);
 
   const openSidebar = () => {
     setIsOpen(true);
-    document.getElementById("mySidebar").style.width = "50vw"; // Open the sidebar for smaller screens
-    document.querySelector(".hamburger").style.display = "none"; // Display the close button
+    const sidebar = document.getElementById("mySidebar");
+    if (sidebar) {
+      sidebar.style.width = "50vw"; // Open the sidebar for smaller screens
+    }
+    const hamburger = document.querySelector(".hamburger");
+    if (hamburger) {
+      (hamburger as HTMLElement).style.display = "none"; // Display the close button
+    }
   };
 
   const closeSidebar = () => {
     setIsOpen(false);
-    document.getElementById("mySidebar").style.width = "0"; // Close the sidebar
-    document.querySelector(".hamburger").style.display = "flex";
+    const sidebar = document.getElementById("mySidebar");
+    if (sidebar) {
+      sidebar.style.width = "0"; // Close the sidebar
+    }
+    const hamburger = document.querySelector(".hamburger");
+    if (hamburger) {
+      (hamburger as HTMLElement).style.display = "flex";
+    }
   };
 
   return (

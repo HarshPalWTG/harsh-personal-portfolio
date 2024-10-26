@@ -63,7 +63,14 @@ const projects = [
   },
 ];
 
-const ProjectCard = ({ project }) => {
+interface Project {
+  title: string;
+  description: string;
+  techStack: string[];
+  category: string;
+}
+
+const ProjectCard = ({ project }: { project: Project }) => {
   return (
     <div className="project-card">
       <h3 className={`${josefinSlab.className}`}>{project.title}</h3>

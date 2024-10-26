@@ -40,6 +40,7 @@ function n(e) {
       t.vx += (pos.x - t.x) * e;
       t.vy += (pos.y - t.y) * e;
       for (var n, i = 0, a = this.nodes.length; i < a; i++)
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         (t = this.nodes[i]),
           0 < i &&
             ((n = this.nodes[i - 1]),
@@ -82,14 +83,17 @@ function n(e) {
         lines.push(new Line({ spring: 0.45 + (e / E.trails) * 0.025 }));
     }
     function c(e) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       e.touches
         ? ((pos.x = e.touches[0].pageX), (pos.y = e.touches[0].pageY))
         : ((pos.x = e.clientX), (pos.y = e.clientY)),
         e.preventDefault();
     }
     function l(e) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       1 == e.touches.length && ((pos.x = e.touches[0].pageX), (pos.y = e.touches[0].pageY));
     }
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     document.removeEventListener('mousemove', onMousemove),
       document.removeEventListener('touchstart', onMousemove),
       document.addEventListener('mousemove', c),

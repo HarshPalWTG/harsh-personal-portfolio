@@ -2,21 +2,20 @@
 
 import { useRef, useState, useEffect, useContext } from "react";
 import ThemeContext from '../context/ThemeContext'; // Ensure this is the correct path
-import { motion, AnimatePresence } from 'framer-motion';
 import ThemeToggleButton from './ThemeToggleButton'; // Ensure this is the correct path
 
-const languages = [
-  'Hello', // English
-  'Hola', // Spanish
-  'Bonjour', // French
-  'Hallo', // German
-  'नमस्ते', // Hindi
-  'こんにちは', // Japanese
-  '안녕하세요', // Korean
-  'Привет', // Russian
-  'Ciao', // Italian
-  'Olá', // Portuguese
-];
+// const languages = [
+//   'Hello', // English
+//   'Hola', // Spanish
+//   'Bonjour', // French
+//   'Hallo', // German
+//   'नमस्ते', // Hindi
+//   'こんにちは', // Japanese
+//   '안녕하세요', // Korean
+//   'Привет', // Russian
+//   'Ciao', // Italian
+//   'Olá', // Portuguese
+// ];
 
 export default function Landing({ setIsLandingVisible }: { setIsLandingVisible: (a: boolean) => void }) {
   const [text1, setText1] = useState("");
@@ -28,8 +27,8 @@ export default function Landing({ setIsLandingVisible }: { setIsLandingVisible: 
   const [isDeleting2, setIsDeleting2] = useState(false); // Track deletion of fullText2
   const [showImage, setShowImage] = useState(false);
   const [imageKey, setImageKey] = useState(0); // Define the imageKey state
-  const [index, setIndex] = useState(0);
-  const [isFinished, setIsFinished] = useState(false);
+  // const [index, setIndex] = useState(0);
+  // const [isFinished, setIsFinished] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const { theme, toggleTheme } = useContext(ThemeContext); // Access the theme and toggleTheme from the context
 
