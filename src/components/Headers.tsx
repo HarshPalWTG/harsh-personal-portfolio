@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from "react";
 import { Headland_One } from "next/font/google";
 
 const headlandOne = Headland_One({
