@@ -1,0 +1,167 @@
+/* Container for the entire intro section */
+.introContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full viewport height */
+  text-align: center;
+  overflow: visible;
+}
+
+/* Container for the intro content */
+.introContent {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* Styles for the greeting text */
+.greetingText {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #aaa; /* Lighter grey for greeting */
+  z-index: 2;
+}
+
+/* Styles for the name text */
+.introText {
+  font-size: 3.4rem; /* Larger font size */
+  font-weight: bold;
+  margin-bottom: 10px;
+  /* white-space: nowrap; */
+  color: white;
+  z-index: 2;
+}
+
+/* Styles for the name with gradient */
+.nameText {
+  background: linear-gradient(to right, #ec4899, #8b5cf6); /* Gradient effect */
+  -webkit-background-clip: text;
+  color: transparent; /* Text transparency to show gradient */
+  font-weight: bold;
+  overflow: visible;
+  z-index: 2;
+}
+
+/* Profile image styles */
+.imageContainer {
+  position: relative; /* Ensure the tooltip stays within the image container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Profile image styles */
+.profileImage {
+  border-radius: 9999px; /* Make the image circular */
+  box-shadow: var(--shadow); /* Add some shadow for effect */
+  transition: transform 0.3s ease; /* Smooth effect on hover */
+  z-index: 2; /* Ensure the image is above the tooltip */
+}
+
+.profileImage:hover {
+  transform: scale(1.05); /* Slightly zoom the image on hover */
+}
+
+/* Tooltip styles */
+.tooltip {
+  position: absolute;
+  top: -50px; /* Adjust the position above the image */
+  background-color: rgba(0, 0, 0, 0.75); /* Background for the tooltip */
+  color: #fff; /* Text color */
+  padding: 8px 12px; /* Spacing inside the tooltip */
+  border-radius: 12px; /* Rounded corners */
+  opacity: 0; /* Initially hidden */
+  transform: translateY(10px); /* Start slightly below the target */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth appear effect */
+  pointer-events: none; /* Prevent interaction with the tooltip */
+}
+
+/* Show the tooltip on hover */
+.profileImage:hover + .tooltip {
+  opacity: 1;
+  transform: translateY(0); /* Move the tooltip into position */
+}
+
+/* Optional: Arrow for the tooltip */
+.tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -16px; /* Position the arrow below the tooltip */
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.75) transparent transparent transparent; /* Arrow color */
+}
+
+/* Styles for the job title */
+.jobTitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Blinking cursor */
+.cursor {
+  display: inline-block;
+  margin-left: 0.1rem;
+  animation: blink 1s step-end infinite;
+}
+
+/* Button container */
+.introButtonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Styles for the button */
+.introButton {
+  background-color: transparent;
+  border: 2px solid var(--border-color);
+  padding: 10px 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  border-radius: 9999px;
+  color: var(--text);
+  z-index: 2;
+}
+
+/* Hover styles for the button */
+.introButton:hover {
+  background-color: var(--hover-background-color);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+/* Animation for fading in */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Blinking animation */
+@keyframes blink {
+  from, to {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
