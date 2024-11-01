@@ -129,26 +129,26 @@ const Contact: React.FC<ContactProps> = () => {
             ></textarea>
           </div>
 
-          <button type="submit" className={ `${playpenSans.className} btn`}>
+          <button type="submit" className={ `${playpenSans.className} btn hover:animate-bounce`}>
             {loading ? "Sending..." : "Send Message"}
           </button>
         </form>
         <ToastContainer position="bottom-right" theme={theme} />
       </div>
         <div className="social-media-buttons">
-          <a href={`mailto:${gmail}`} target="_blank" rel="noopener noreferrer">
+          <a href={`mailto:${gmail}`} target="_blank" rel="noopener noreferrer" className="hover:animate-bounce">
             <SiGmail size={20} />
           </a>
-          <a href={instagram} target="_blank" rel="noopener noreferrer">
+          <a href={instagram} target="_blank" rel="noopener noreferrer" className="hover:animate-bounce">
             <FaInstagram size={20} />
           </a>
-          <a href={linkedin} target="_blank" rel="noopener noreferrer">
+          <a href={linkedin} target="_blank" rel="noopener noreferrer" className="hover:animate-bounce">
             <FaLinkedin size={20} />
           </a>
-          <a href={leetcode} target="_blank" rel="noopener noreferrer">
+          <a href={leetcode} target="_blank" rel="noopener noreferrer" className="hover:animate-bounce">
             <SiLeetcode size={20} />
           </a>
-          <a href={github} target="_blank" rel="noopener noreferrer">
+          <a href={github} target="_blank" rel="noopener noreferrer" className="hover:animate-bounce">
             <FaGithub size={20} />
           </a>
         </div>

@@ -101,7 +101,7 @@ export default function Intro() {
             height={160}
             className={styles.profileImage}
           />
-          <div className={`${playwriteGBS.className} ${styles.tooltip}`}>Hello!!</div>
+          <div className={`${playwriteGBS.className} ${styles.tooltip} animate-bounce`}>Hello!!</div>
         </div>
         <div className={`${playwriteGBS.className} ${styles.greetingText}`}>Hey there I&apos;m,</div>
         <div className={`${courgette.className} ${styles.introText} ${fadeIn ? "w-full" : "w-0"}`}>
@@ -110,7 +110,7 @@ export default function Intro() {
         <div className={`${styles.jobTitle} ${phrases[loopNum % phrases.length].font}`}>
           {text}<span className={styles.cursor}>|</span>
         </div>
-        <div className={`${playwriteGBS.className} ${styles.introButtonContainer}`}>
+        <div className={`${playwriteGBS.className} ${styles.introButtonContainer} hover:animate-bounce`}>
           <button
             onClick={handleScrollToContact}
             className={`${styles.introButton} hover-button`}

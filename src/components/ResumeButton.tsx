@@ -6,7 +6,7 @@ const playpenSans = Playpen_Sans({
 });
 const ResumeButton = () => {
     return (
-      <div className={`${playpenSans.className} flex mt-3`}>
+      <div className={`${playpenSans.className} flex mt-3 hover:animate-bounce`}>
       <a
         href="/Harsh_Pal_CV.pdf"  // Link to your resume file
         download="Harsh_Pal_CV.pdf"

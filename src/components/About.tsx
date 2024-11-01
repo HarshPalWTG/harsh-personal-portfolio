@@ -79,9 +79,9 @@ const About = () => {
             <div
               className="absolute inset-0 flex flex-col items-center justify-center bg-[rgba(0,0,0,0.6)] rounded-full p-4 transition-opacity duration-300"
             >
-              <span className={`${playpenSans.className} text-white text-sm text-center mb-1 sm:text-xs md:text-sm lg:text-base`}>Hii!! Connect with me 👇🏻</span>
+              <span className={`${playpenSans.className} text-white text-sm text-center mb-1 sm:text-xs md:text-sm lg:text-base animate-bounce`}>Hii!! Connect with me 👇🏻</span>
               
-              <div className="flex gap-4">
+              <div className="flex gap-4 animate-pulse">
                 <a href={`mailto:${gmail}`} target="_blank" rel="noopener noreferrer">
                   <SiGmail size={20} className="text-white" />
                 </a>
