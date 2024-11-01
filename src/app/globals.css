@@ -234,43 +234,6 @@ body[data-theme='dark'] {
   text-align: justify;
 }
 
-.tooltip-message {
-  color: #fff;
-  font-size: 14px;
-  margin-bottom: 4px; /* Space between message and icons */
-  text-align: center;
-}
-
-.tooltipt-icons {
-  display: flex;
-  flex-direction: row; /* Icons in horizontal row */
-  gap: 12px; /* Space between icons */
-  justify-content: center;
-}
-
-.tooltipt::after {
-  content: "";
-  position: absolute;
-  top: -16px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 8px;
-  border-style: solid;
-  border-color: transparent transparent rgba(37,35,35,0.8) transparent;
-}
-
-.tooltipt a {
-  color: #fff;
-  transition: color 0.3s ease;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.tooltipt a:hover {
-  color: #b3b3b3;
-}
-
 .about__boxes {
   grid-template-columns: repeat(4, 1fr);
   column-gap: 1.875rem;
