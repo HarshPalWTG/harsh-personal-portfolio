@@ -62,41 +62,39 @@ const About = () => {
         <section className={`${fadeIn ? "fadeIn" : ""} p-8 sm:flex mx-auto w-screen-lg`}>
           <div className="grid w-4/5 mx-auto my-5 sm:grid-cols-[1fr] sm:p-[0.5rem] md:grid-cols-[3fr_9fr] gap-8 p-8 animate-fadeIn justify-center">
           <div className="relative inline-block justify-center items-center pl-6 pb-2 md:pl-16 lg:pl-0 lg:pb-30 md:flex md:justify-center sm:pb-[2rem]">
-            <Image
-              src="/images/about.png"
-              alt="About Image"
-              width={150}
-              height={150}
-              className="custom-shadow transition-transform duration-[0.3s] ease-[ease] rounded-full hover:scale-[1.1] justify-center"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-            />
-            {isHovered && (
-              <div
-                className=" tooltipt
-                  absolute bg-[rgba(37,35,35,0.8)] flex flex-col items-center gap-2
-                  shadow-[0_4px_8px_rgba(0,0,0,0.2)] z-[1000]
-                  transition-transform duration-[0.3s] ease-[ease] p-3 rounded-lg
-                  md:top-[64%] md:left-[48%] md:-translate-x-1/2 md:mt-0
-                "
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-              >
-                <span className={`${playpenSans.className} text-white text-sm text-center mb-1 sm:text-xs md:text-sm lg:text-base`}>Hii!! Connect with me 👇🏻</span>
-             
-             <div className="tooltipt-icons">
-               <a href={`mailto:${gmail}`} target="_blank" rel="noopener noreferrer">
-                 <SiGmail size={20} />
-               </a>
-               <a href={instagram} target="_blank" rel="noopener noreferrer">
-                 <FaInstagram size={20} />
-               </a>
-               <a href={linkedin} target="_blank" rel="noopener noreferrer">
-                 <FaLinkedin size={20} />
-               </a>
-             </div>
-           </div>
-              )}
+          <div 
+          className="relative group" // Group container for image and overlay
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <Image
+            src="/images/about.png"
+            alt="About Image"
+            width={150}
+            height={150}
+            className="custom-shadow transition-transform duration-[0.3s] ease-[ease] rounded-full hover:scale-[1.1] justify-center group-hover:blur-sm"
+          />
+          {/* Content overlay on hover */}
+          {isHovered && (
+            <div
+              className="absolute inset-0 flex flex-col items-center justify-center bg-[rgba(0,0,0,0.6)] rounded-full p-4 transition-opacity duration-300"
+            >
+              <span className={`${playpenSans.className} text-white text-sm text-center mb-1 sm:text-xs md:text-sm lg:text-base`}>Hii!! Connect with me 👇🏻</span>
+              
+              <div className="flex gap-4">
+                <a href={`mailto:${gmail}`} target="_blank" rel="noopener noreferrer">
+                  <SiGmail size={20} className="text-white" />
+                </a>
+                <a href={instagram} target="_blank" rel="noopener noreferrer">
+                  <FaInstagram size={20} className="text-white" />
+                </a>
+                <a href={linkedin} target="_blank" rel="noopener noreferrer">
+                  <FaLinkedin size={20} className="text-white" />
+                </a>
+              </div>
+            </div>
+          )}
+          </div>
           </div>
 
             <div className="about__data custom-shadow grid text-[0.9rem] bg-[color:var(--container-color)] grid-cols-[repeat(1,1fr)] gap-x-[1.875rem] items-start relative p-4 rounded-[20px]">

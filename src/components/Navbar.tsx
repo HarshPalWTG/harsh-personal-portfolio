@@ -14,7 +14,7 @@ const Navbar = () => {
     return (
         <>
             <aside className={toggle ? 'aside show-menu' : 'aside'}>
-                <a href="#intro" className="nav__logo h-[55px] w-[55px]">
+                <a href="#intro" className="nav__item h-[55px] w-[55px]">
                     <Logo />
                 </a>
 

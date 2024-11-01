@@ -44,7 +44,7 @@ const WorkExperience = () => {
             router.push("/");
           }}
             >
-          <div className="icon bg-purple-600 w-8 h-8 md:w-12 md:h-12 flex rounded-full text-white text-xl md:text-2xl absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 animate-slideInFromBottomWork transition-transform duration-300 ease hover:scale-110 cursor-pointer">
+          <div className="icon bg-purple-600 w-8 h-8 md:w-12 md:h-12 flex rounded-full text-white text-xl md:text-2xl absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 animate-slideInFromBottomWork transition-transform duration-300 ease hover:scale-110 cursor-pointer justify-center">
             <Image
               src="/images/WiseTech.png"
               alt="WiseTech"
