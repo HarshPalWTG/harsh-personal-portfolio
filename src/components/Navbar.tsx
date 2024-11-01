@@ -1,79 +1,72 @@
 import React, { useContext, useState } from 'react';
-import {Link} from 'react-scroll';
+import "./Navbar.css";
+import { Link } from "react-scroll";
 import ThemeToggleButton from "./ThemeToggleButton";
-import ResumeButton from "./ResumeButton";
-import ThemeContext from '../context/ThemeContext'; // Ensure this is the correct path
+import ThemeContext from '../context/ThemeContext';
 import Logo from "./Logo"
-import { FaBars } from 'react-icons/fa';
-import {Playpen_Sans} from "next/font/google";
+import { RiHome2Line, RiUser3Line, RiBriefcase2Line, RiDraftLine, RiChat3Line, RiMenu2Line, RiProjectorFill} from "react-icons/ri";
 
-const playpenSans = Playpen_Sans({
-  subsets: ["latin"],
-  weight: ["400"],
-});
 
-export default function App() {
-  const { theme, toggleTheme } = useContext(ThemeContext); // Access the theme and toggleTheme from the context
-  const [, setIsOpen] = useState(false);
+const Navbar = () => {
+    const {toggleTheme } = useContext(ThemeContext);
+    const [toggle, showMenu] = useState(false);
 
-  const openSidebar = () => {
-    setIsOpen(true);
-    const sidebar = document.getElementById("mySidebar");
-    if (sidebar) {
-      sidebar.style.width = "50vw"; // Open the sidebar for smaller screens
-    }
-    const hamburger = document.querySelector(".hamburger");
-    if (hamburger) {
-      (hamburger as HTMLElement).style.display = "none"; // Display the close button
-    }
-  };
+    return (
+        <>
+            <aside className={toggle ? 'aside show-menu' : 'aside'}>
+                <a href="#intro" className="nav__logo h-[55px] w-[55px]">
+                    <Logo />
+                </a>
 
-  const closeSidebar = () => {
-    setIsOpen(false);
-    const sidebar = document.getElementById("mySidebar");
-    if (sidebar) {
-      sidebar.style.width = "0"; // Close the sidebar
-    }
-    const hamburger = document.querySelector(".hamburger");
-    if (hamburger) {
-      (hamburger as HTMLElement).style.display = "flex";
-    }
-  };
+                <nav className="nav">
+                    <div className="nav__menu">
+                        <ul className="nav__list">
+                            <li className="nav__item">
+                                <Link to="intro" smooth={true} duration={500} className="nav__link cursor-pointer">
+                                    <RiHome2Line />
+                                </Link>
+                            </li>
 
-  return (
-    <>
-      <div className={`${playpenSans.className} navbar`}>
-        <div className= "nav-containers hamburger" onClick={openSidebar}>
-          <FaBars />
-        </div>
-        <div className="nav-containers brand-section">
-          <Link to="intro" smooth={true} duration={500} offset={-80} className="nav-brand"><Logo /></Link>
-        </div>
-        <div className="nav-containers items-section">
-          <Link to="about" smooth={true} duration={500} offset={-80} className="nav-items" activeClass="active">About</Link>
-          <Link to="work-experience" smooth={true} duration={500} offset={-80} className="nav-items" activeClass="active">Work Experience</Link>
-          <Link to="projects" smooth={true} duration={500} offset={-80}  className="nav-items" activeClass="active">Projects</Link>
-        </div>
-        <div className="nav-containers button-section">
-          {/* <div className="nav-items rsm-btn"> */}
-            <ResumeButton />
-          {/* </div> */}
-          <div className="nav-items">
-            <ThemeToggleButton toggleTheme={toggleTheme} />
-          </div>
-        </div>
-      </div>
-      {/* Sidebar for smaller screens */}
-        <div id="mySidebar" className={`${playpenSans.className} sidebar ${theme}`}>
-          <a href="javascript:void(0)" className="closebtn" onClick={closeSidebar}>&times;</a>
-          <a href="#about">About</a>
-          <a href="#work-experience">Work Experience</a>
-          <a href="#projects">Projects</a>
-            <ResumeButton />
-          <div className="nav-items">
-            <ThemeToggleButton toggleTheme={toggleTheme} />
-          </div>
-        </div>
-    </>
-  );
-}
+                            <li className="nav__item">
+                                <Link to="about" smooth={true} duration={500} className="nav__link cursor-pointer">
+                                    <RiUser3Line />
+                                </Link>
+                            </li>
+
+                            <li className="nav__item">
+                                <Link to="work-experience" smooth={true} duration={500} className="nav__link cursor-pointer">
+                                    <RiBriefcase2Line />
+                                </Link>
+                            </li>
+
+                            <li className="nav__item">
+                                <Link to="projects" smooth={true} duration={500} className="nav__link cursor-pointer">
+                                    <RiProjectorFill />
+                                </Link>
+                            </li>
+
+                            <li className="nav__item">
+                                <Link to="contact" smooth={true} duration={500} className="nav__link cursor-pointer">
+                                    <RiChat3Line />
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <div className="nav__footer">
+                    <ThemeToggleButton toggleTheme={toggleTheme} />
+                    <a href="/Harsh_Pal_CV.pdf" className="nav__link cursor-pointer" download>
+                         <RiDraftLine />
+                    </a>
+                </div>
+            </aside>
+
+            <div className={toggle ? 'nav__toggle nav__toggle-open' : 'nav__toggle'} onClick={() => showMenu(!toggle)}>
+                <RiMenu2Line />
+            </div>
+        </>
+    );
+};
+
+export default Navbar;

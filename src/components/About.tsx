@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Headers from './Headers';
-import Card from './Card';
+import ResumeButton from './ResumeButton';
 import { FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
-import { Anonymous_Pro, Playpen_Sans } from "next/font/google";
+import { Anonymous_Pro, Playpen_Sans, Poppins } from "next/font/google";
 import { useRouter } from "next/navigation";
 import { codeforces, iitr, leetcode, uvic, instagram, linkedin, gmail } from '../../public/Links';
 
@@ -14,6 +14,11 @@ const anonymousPro = Anonymous_Pro({
 });
 
 const playpenSans = Playpen_Sans({
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400"],
 });
@@ -51,25 +56,33 @@ const About = () => {
   }, [aboutRef]);
 
   return (
-    <section id="about" ref={aboutRef}>
-      <Card>
-        <section className={`about container section ${fadeIn ? "fadeIn" : ""}`} style={{ padding: "2rem" }}>
-          <Headers text="About Me" />
-          <div className="about__container grid">
-            <div className="about__img-container">
-              <Image
-                src="/images/about.png"
-                alt="About Image"
-                width={150}
-                height={150}
-                className="about__img"
+    <section id="about" ref={aboutRef} className='my-8 h-[100vh] w-[100vw] overflow-y-auto'>
+      {/* <Card> */}
+      <Headers text="About Me" />
+        <section className={`${fadeIn ? "fadeIn" : ""} p-8 sm:flex mx-auto w-screen-lg`}>
+          <div className="grid w-4/5 mx-auto my-5 sm:grid-cols-[1fr] sm:p-[0.5rem] md:grid-cols-[3fr_9fr] gap-8 p-8 animate-fadeIn justify-center">
+          <div className="relative inline-block justify-center items-center pl-6 pb-2 md:pl-16 lg:pl-0 lg:pb-30 md:flex md:justify-center sm:pb-[2rem]">
+            <Image
+              src="/images/about.png"
+              alt="About Image"
+              width={150}
+              height={150}
+              className="custom-shadow transition-transform duration-[0.3s] ease-[ease] rounded-full hover:scale-[1.1] justify-center"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            />
+            {isHovered && (
+              <div
+                className=" tooltipt
+                  absolute bg-[rgba(37,35,35,0.8)] flex flex-col items-center gap-2
+                  shadow-[0_4px_8px_rgba(0,0,0,0.2)] z-[1000]
+                  transition-transform duration-[0.3s] ease-[ease] p-3 rounded-lg
+                  md:top-[64%] md:left-[48%] md:-translate-x-1/2 md:mt-0
+                "
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
-              />
-              {isHovered && (
-                <div className="tooltipt" onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}>
-             <span className={`${playpenSans.className} tooltip-message`}>Hii!! Connect with me 👇🏻</span>
+              >
+                <span className={`${playpenSans.className} text-white text-sm text-center mb-1 sm:text-xs md:text-sm lg:text-base`}>Hii!! Connect with me 👇🏻</span>
              
              <div className="tooltipt-icons">
                <a href={`mailto:${gmail}`} target="_blank" rel="noopener noreferrer">
@@ -84,11 +97,11 @@ const About = () => {
              </div>
            </div>
               )}
-            </div>
+          </div>
 
-            <div className="about__data grid">
+            <div className="about__data custom-shadow grid text-[0.9rem] bg-[color:var(--container-color)] grid-cols-[repeat(1,1fr)] gap-x-[1.875rem] items-start relative p-4 rounded-[20px]">
               <div className="about__info">
-                <p className={`${playpenSans.className} about__description`}>
+                <p className={`${poppins.className} about__description`}>
                   I&apos;m a passionate software developer with a Bachelor of Technology in Mechanical Engineering from the <a
                     onClick={() => {
                       window.open(iitr, "_blank");
@@ -130,57 +143,27 @@ const About = () => {
                   I love coding and am always eager to explore and solve problems, whether they are related to mechanical or software engineering.<br /><br />
                   Here are a few technologies I have worked on:
                 </p>
-                <ul className={`${anonymousPro.className} about__list`}>
-                  <li>C++</li>
-                  <li>C#</li>
-                  <li>Java</li>
-                  <li>Python</li>
-                  <li>Data Structure and Algorithms</li>
-                  <li>JavaScript (ES6+)</li>
-                  <li>TypeScript</li>
-                  <li>React.js</li>
-                  <li>Next.js</li>
-                  <li>Android Studio</li>
-                  <li>Winforms</li>
-                  <li>Blazor</li>
-                  <li>Unity Game Engine</li>
+                <ul className={`${anonymousPro.className} grid text-[0.7rem] grid-cols-[repeat(2,1fr)] mb-4`}>
+                  <li className='relative pl-5 before:content-["▹"] before:absolute before:left-0'>C++</li>
+                  <li className='relative pl-5 before:content-["▹"] before:absolute before:left-0'>C#</li>
+                  <li className='relative pl-5 before:content-["▹"] before:absolute before:left-0'>Java</li>
+                  <li className='relative pl-5 before:content-["▹"] before:absolute before:left-0'>Python</li>
+                  <li className='relative pl-5 before:content-["▹"] before:absolute before:left-0'>Data Structure and Algorithms</li>
+                  <li className='relative pl-5 before:content-["▹"] before:absolute before:left-0'>JavaScript (ES6+)</li>
+                  <li className='relative pl-5 before:content-["▹"] before:absolute before:left-0'>TypeScript</li>
+                  <li className='relative pl-5 before:content-["▹"] before:absolute before:left-0'>React.js</li>
+                  <li className='relative pl-5 before:content-["▹"] before:absolute before:left-0'>Next.js</li>
+                  <li className='relative pl-5 before:content-["▹"] before:absolute before:left-0'>Android Studio</li>
+                  <li className='relative pl-5 before:content-["▹"] before:absolute before:left-0'>Winforms</li>
+                  <li className='relative pl-5 before:content-["▹"] before:absolute before:left-0'>Blazor</li>
+                  <li className='relative pl-5 before:content-["▹"] before:absolute before:left-0'>Unity Game Engine</li>
                 </ul>
+                <ResumeButton />
               </div>
-
-              {/* Uncomment and complete the skills section if needed */}
-              {/* <div className="about__skills grid">
-                <div className="skills__data">
-                  <div className="skills__titles">
-                    <h3 className="skills__name">Development</h3>
-                    <span className="skills__number">90%</span>
-                  </div>
-                  <div className="skills__bar">
-                    <span className="skills__percentage development"></span>
-                  </div>
-                </div>
-                <div className="skills__data">
-                  <div className="skills__titles">
-                    <h3 className="skills__name">UI/UX Design</h3>
-                    <span className="skills__number">80%</span>
-                  </div>
-                  <div className="skills__bar">
-                    <span className="skills__percentage ui__design"></span>
-                  </div>
-                </div>
-                <div className="skills__data">
-                  <div className="skills__titles">
-                    <h3 className="skills__name">Photography</h3>
-                    <span className="skills__number">60%</span>
-                  </div>
-                  <div className="skills__bar">
-                    <span className="skills__percentage photography"></span>
-                  </div>
-                </div>
-              </div> */}
             </div>
           </div>
         </section>
-      </Card>
+      {/* </Card> */}
     </section>
   );
 };

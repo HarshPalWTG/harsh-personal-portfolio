@@ -4,6 +4,7 @@ import { scroller } from "react-scroll";
 import { Courgette, Josefin_Slab, Anonymous_Pro, Playpen_Sans } from "next/font/google";
 import ThemeContext from '../context/ThemeContext'; // Import ThemeContext
 import Image from "next/image";
+import Card from "./Card";
 import { renderCanvas } from "./renderCanvas";
 import styles from "./Intro.module.css";
 
@@ -88,6 +89,7 @@ export default function Intro() {
   const router = useRouter();
   
   return (
+    <Card>
     <div id = "intro" className={`${styles.introContainer} ${theme === 'dark' ? 'dark-theme' : 'light-theme'}`}>
       <div className={styles.introContent}>
         {/* Image next to your name */}
@@ -117,7 +119,8 @@ export default function Intro() {
           </button>
         </div>
       </div>
-      <canvas className="bg-skin-base pointer-events-none absolute inset-0" id="canvas" style={{ zIndex: 1 }}></canvas>
     </div>
+    <canvas className="bg-skin-base pointer-events-none absolute inset-0" id="canvas" style={{ zIndex: 1 }}></canvas>
+    </Card>
   );
 }

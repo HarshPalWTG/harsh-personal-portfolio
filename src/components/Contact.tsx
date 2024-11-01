@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from "react";
-import Card from "./Card";
 import { toast, ToastContainer } from "react-toastify";
 import { Playpen_Sans, Playfair_Display } from "next/font/google";
 import emailjs from "@emailjs/browser";
@@ -77,12 +76,10 @@ const Contact: React.FC<ContactProps> = () => {
   };
 
   return (
-    <>
-    <Card>
-    <section id = "contacts" className={`contact container section" ${fadeIn ? "fadeIn" : ""}`} style = {{padding : "2rem", height: "100vh", justifyContent:"center", alignContent: "center"}}>
+    <section id = "contacts" className={`contact container section" ${fadeIn ? "fadeIn" : ""}`} style = {{padding : "2rem", height: "100vh", width: "100vw"}}>
     <Headers text = "Get in Touch" />
 
-      <div className={`${playpenSans.className} contact__container grid`}>
+      <div className={`${playpenSans.className} contact__container grid justify-center align-center`}>
         <div className="contact__info">
           <h3 className="contact__title">Let&apos;s talk about everything!</h3>
           <p className="contact__details">
@@ -156,13 +153,13 @@ const Contact: React.FC<ContactProps> = () => {
           </a>
         </div>
 
-          <footer className={`${playfairDisplay.className} footer`} style={{fontSize: "15px"}}>
+          <footer className={`${playfairDisplay.className} footer`} style={{fontSize: "15px", marginBottom: "10px"}}>
             Made with ❤️<br /> by Harsh Pal
           </footer>
     </section>
-    </Card>
-    </>
   );
 };
 
 export default Contact;
+
+

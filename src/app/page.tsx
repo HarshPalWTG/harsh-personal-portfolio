@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Head from 'next/head';
 import Landing from '@/components/Landing';
 import Navbar from '../components/Navbar';
@@ -22,18 +22,19 @@ export default function Home(): JSX.Element {
   ];
 
   return (
-    <div>
+    <div className="w-[100vw]">
       <Head>
         <link rel="icon" href="/favicon.png" />
         <title>Harsh Pal&apos;s Portfolio</title>
       </Head>
       {/* Landing Page */}
+      <CursorArea />
       {isLandingVisible && <Landing setIsLandingVisible={setIsLandingVisible} />}
       {!isLandingVisible && <Navbar />}
 
       {/* Main Content */}
       {!isLandingVisible && (
-        <main className="p-4">
+        <main className="p-4 ml-[100px]">
           <div className="sections-container">
             {sections.map((section, index) => (
               <div key={index} id={section.id} className="section">
@@ -47,3 +48,29 @@ export default function Home(): JSX.Element {
     </div>
   );
 }
+
+const CursorArea = () => {
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const handleMouseMove = (event: any) => {
+      setCursorPosition({ x: event.clientX, y: event.clientY });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
+  return (
+    <div
+      className="absolute w-[800px] blur-[200px] h-[800px] bg-blue-500/10 rounded-full cursor-default pointer-events-none transition-transform duration-75 ease-linear top-0 left-0"
+      style={{
+        transform: `translate(${cursorPosition.x - 400}px, ${
+          cursorPosition.y - 400
+        }px)`,
+      }}
+    ></div>
+  );
+};

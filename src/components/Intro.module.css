@@ -21,20 +21,31 @@
 
 /* Styles for the greeting text */
 .greetingText {
-  font-size: 1.2rem;
+  font-size: 1rem; /* Adjusted for smaller screens */
   margin-bottom: 10px;
   color: #aaa; /* Lighter grey for greeting */
   z-index: 2;
 }
 
+@media (min-width: 768px) {
+  .greetingText {
+    font-size: 1.2rem;
+  }
+}
+
 /* Styles for the name text */
 .introText {
-  font-size: 3.4rem; /* Larger font size */
+  font-size: 2.5rem; /* Adjusted for smaller screens */
   font-weight: bold;
   margin-bottom: 10px;
-  /* white-space: nowrap; */
   color: white;
   z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .introText {
+    font-size: 3.4rem;
+  }
 }
 
 /* Styles for the name with gradient */
@@ -58,6 +69,8 @@
 
 /* Profile image styles */
 .profileImage {
+  width: 100px; /* Adjusted for smaller screens */
+  height: 100px; /* Adjusted for smaller screens */
   border-radius: 9999px; /* Make the image circular */
   box-shadow: var(--shadow); /* Add some shadow for effect */
   transition: transform 0.3s ease; /* Smooth effect on hover */
@@ -68,11 +81,18 @@
   transform: scale(1.05); /* Slightly zoom the image on hover */
 }
 
+@media (min-width: 768px) {
+  .profileImage {
+    width: 150px;
+    height: 150px;
+  }
+}
+
 /* Tooltip styles */
 .tooltip {
   position: absolute;
   top: -50px; /* Adjust the position above the image */
-  background-color: rgba(0, 0, 0, 0.75); /* Background for the tooltip */
+  background-color: rgba(37,35,35,0.8); /* Background for the tooltip */
   color: #fff; /* Text color */
   padding: 8px 12px; /* Spacing inside the tooltip */
   border-radius: 12px; /* Rounded corners */
@@ -80,6 +100,15 @@
   transform: translateY(10px); /* Start slightly below the target */
   transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth appear effect */
   pointer-events: none; /* Prevent interaction with the tooltip */
+}
+
+@media (max-width: 767px) {
+  .tooltip {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 0.5rem;
+  }
 }
 
 /* Show the tooltip on hover */
@@ -97,17 +126,32 @@
   transform: translateX(-50%);
   border-width: 8px;
   border-style: solid;
-  border-color: rgba(0, 0, 0, 0.75) transparent transparent transparent; /* Arrow color */
+  border-color: rgba(37,35,35,0.8) transparent transparent transparent; /* Arrow color */
+}
+
+@media (max-width: 767px) {
+  .tooltip::after {
+    top: 50%;
+    left: -16px;
+    transform: translateY(-50%) rotate(90deg);
+    border-color: transparent rgba(37,35,35,0.8) transparent transparent;
+  }
 }
 
 /* Styles for the job title */
 .jobTitle {
-  font-size: 1.5rem;
+  font-size: 1.2rem; /* Adjusted for smaller screens */
   font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .jobTitle {
+    font-size: 1.5rem;
+  }
 }
 
 /* Blinking cursor */
@@ -128,8 +172,8 @@
 .introButton {
   background-color: transparent;
   border: 2px solid var(--border-color);
-  padding: 10px 30px;
-  font-size: 1rem;
+  padding: 8px 20px; /* Adjusted for smaller screens */
+  font-size: 0.9rem; /* Adjusted for smaller screens */
   cursor: pointer;
   transition: all 0.5s ease-in-out;
   border-radius: 9999px;

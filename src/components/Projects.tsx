@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Headers from "./Headers";
-import Card from "./Card";
 import { Anonymous_Pro, Playpen_Sans, Josefin_Slab } from "next/font/google";
 
 const anonymousPro = Anonymous_Pro({
@@ -90,8 +89,8 @@ const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState("Software");
 
   return (
-    <section id="projects">
-    <Card>
+    <section id="projects" className="h-[100vh] w-[100vw] overflow-y-auto">
+    {/* <Card> */}
     <section style={{ padding: '2rem' }} className="projects-section">
       <Headers text="Projects" />
       
@@ -122,7 +121,7 @@ const Projects = () => {
         </div>
       </div>
     </section>
-    </Card>
+    {/* </Card> */}
     </section>
   );
 };

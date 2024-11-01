@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { FaMoon, FaSun } from 'react-icons/fa';
+import { RiSunLine, RiMoonLine } from 'react-icons/ri';
 import ThemeContext from '../context/ThemeContext'; // Ensure this is the correct path
 
 const ThemeToggleButton = ({ toggleTheme }: { toggleTheme: () => void }) => {
@@ -18,7 +18,7 @@ const ThemeToggleButton = ({ toggleTheme }: { toggleTheme: () => void }) => {
       }}
       aria-label="Toggle theme"
     >
-      {theme === 'light' ? <FaMoon style={{ color: '#1e293b' }}/> : <FaSun style={{ color: 'yellow' }}/> }
+      {theme === 'light' ? <RiMoonLine /> : <RiSunLine /> }
     </button>
   );
 };
