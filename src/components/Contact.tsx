@@ -91,7 +91,7 @@ const Contact: React.FC<ContactProps> = () => {
             <div className="relative mb-6 h-8 md:h-16">
               <input
                 type="text"
-                className="text-[3px] md:text-2xl absolute top-0 left-0 w-full h-full custom-shadow bg-[color:var(--container-color)] border-none outline-none rounded-[1.875rem] p-4"
+                className="absolute top-0 left-0 w-full h-full custom-shadow bg-[color:var(--container-color)] border-none outline-none rounded-[1.875rem] p-4"
                 placeholder="Insert your name"
                 onChange={(e) => setName(e.target.value)}
               />
