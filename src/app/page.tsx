@@ -48,6 +48,7 @@ export default function Home(): JSX.Element {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const CursorArea = () => {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
