@@ -4,7 +4,7 @@ import ThemeContext from '../context/ThemeContext'; // Ensure this is the correc
 const Logo = () => {
   const { theme } = useContext(ThemeContext);
 
-  const logoSrc = theme === 'dark' ? '/images/Logo2.png' : '/images/Logo.png';
+  const logoSrc = theme === 'dark' ? '/white_logo.svg' : '/black_logo.svg';
 
   return <img src={logoSrc} alt="Logo" className="logo-image" />;
 };

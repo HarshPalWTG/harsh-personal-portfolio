@@ -56,7 +56,7 @@ const About = () => {
   }, [aboutRef]);
 
   return (
-    <section id="about" ref={aboutRef} className='my-8 h-[100vh] w-[100vw] overflow-y-auto'>
+    <section id="about" ref={aboutRef} className='my-8 p-8 relative h-[100vh] overflow-y-auto'>
       {/* <Card> */}
       <Headers text="About Me" />
         <section className={`${fadeIn ? "fadeIn" : ""} p-8 sm:flex mx-auto w-screen-lg`}>

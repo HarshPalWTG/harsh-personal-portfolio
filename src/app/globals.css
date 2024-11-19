@@ -71,6 +71,7 @@ body[data-theme='dark'] {
 
 /*Contact.cs*/
 .contact.section {
+  width: 100vw;
   padding-bottom: 6.25rem;
   padding-right: 3rem;
   padding-left: 3rem;
@@ -111,7 +112,6 @@ body[data-theme='dark'] {
   height: 100%;
   box-shadow: var(--shadow);
   background-color: var(--container-color);
-  /* color: var(--text-color); */
   border: none;
   outline: none;
   border-radius: 1.875rem;

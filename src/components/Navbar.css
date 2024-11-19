@@ -5,13 +5,14 @@ aside {
     background-color: var(--hover-tech-item);
     box-shadow: var(--shadow);
     padding: 2.5rem;
-    width: 110px;
+    width: 100px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     z-index: 11;
     transition: 0.3s;
+    overflow-y: auto;
   }
   
   .nav__list {

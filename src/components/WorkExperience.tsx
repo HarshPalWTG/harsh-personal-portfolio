@@ -27,7 +27,7 @@ const WorkExperience = () => {
   ];
     return (
     // <Card>
-      <section id="work-experience" className="p-8 h-[100vh] w-[100vw]">
+      <section id="work-experience" className="p-8 relative h-[100vh]">
         <Headers text="Work Experience" />
         <div className="w-full mx-auto p-12">
           <div className="timeline relative py-4 list-none">
